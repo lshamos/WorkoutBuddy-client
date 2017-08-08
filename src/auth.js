@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode'
 class AuthClient {
   constructor() {
     this.request = axios.create({
-      baseURL: 'http://localhost:3001/api',
+      baseURL: 'https://workoutbuddyappserver.herokuapp.com/api',
       headers: {
         common: {
           token: this.getToken()
@@ -35,7 +35,7 @@ class AuthClient {
         }
       })
   }
-  
+
   getCurrentUser() {
       const token = this.getToken()
       return token ? jwtDecode(token) : null
