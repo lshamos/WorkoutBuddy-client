@@ -18,6 +18,20 @@ class AuthClient {
     .then(response => response.data)
   }
 
+  createExercise(data) {
+    return this.request({method: 'POST', url: '/exercises', data: data})
+    .then(response => response.data)
+  }
+
+  editExercises(data) {
+    return this.request({method: 'PATCH', url:'/exercises/'})
+  }
+
+  addSet(id, setInfo) {
+    return this.request({method: 'PATCH', url: `/exercises/${id}/sets`, data: setInfo})
+      .then(response => response.data)
+  }
+
   signUp(userInfo) {
     return this.request({method: 'POST', url: '/users', data: userInfo})
       .then((response) => response.data.success)

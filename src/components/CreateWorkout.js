@@ -1,12 +1,14 @@
 import React from 'react'
 import auth from '../auth'
 import {Redirect} from 'react-router-dom'
+import NumericInput from 'react-numeric-input'
 import Log from './Log'
 
 
 class CreateWorkout extends React.Component {
   state = {
-    shouldredirect: false, showLog: false, showRep: false
+    shouldredirect: false,
+    newWorkoutId: null
   }
 
   handleFormSubmit(evt) {
@@ -18,63 +20,26 @@ class CreateWorkout extends React.Component {
     console.log(formData)
 
     // make api request to create workout with formData
-  }
-
-  handleSetSelect() {
-    console.log("show lbs and rep")
-    this.setState( {showRep: true} )
-    //console.log(this.state.showRep)
-  }
-
-  handleClickSelect() {
-    console.log("Show more options")
-    this.setState( {showLog: true} )
-  }
-
-renderRep() {
-  return (
-    <div>
-      <form>
-        <input ref="lbs" type="text" placeholder="lbs" />
-        <input ref="reps" type="text" placeholder="reps" />
-        <button>lbs/reps</button>
-      </form>
-    </div>
-  )
-}
-
-  renderLog() {
-    return (
-      <div>
-        <select ref='name'>
-          <option value='Set'>1</option>
-          <option value='Set'>2</option>
-          <option value='Set'>3</option>
-          <option value='Set'>4</option>
-          <option value='Set'>5</option>
-          <option value='Set'>6</option>
-          <option value='Set'>7</option>
-          <option value='Set'>8</option>
-          <option value='Set'>9</option>
-        </select>
-
-        <button onClick={this.handleSetSelect.bind(this)} >Sets</button>
-
-      </div>
-    )
+    auth.createExercise(formData).then(response => {
+      console.log(response)
+      this.setState({
+        shouldRedirect: true,
+        newWorkoutId: response.exercise._id
+      })
+    })
   }
 
   render() {
     return (
       this.state.shouldRedirect
-      ? <Redirect to='/'/>
+      ? <Redirect to={`/workouts/${this.state.newWorkoutId}/sets/new`}/>
       : (
         <div className="CreateWorkout">
           <h1>Select Exercise</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <select ref='name'>
               <option value='Deadlift'>Deadlift</option>
-              <option value='Squat'>Squat</option>
+              <option value='Squat'>Barbell Squat</option>
               <option value='Shoulder Press'>Shoulder Press</option>
               <option value='Bench Press'>Bench Press</option>
               <option value='Barbell Curl'>Barbell Curl</option>
@@ -101,10 +66,10 @@ renderRep() {
               <option value='Push Ups'>Push Ups</option>
               <option value='Dips'>Dips</option>
             </select>
-            <button onClick={this.handleClickSelect.bind(this)}>Select</button>
+            <button>Select</button>
 
-            {this.state.showLog ? this.renderLog() : null }
-            {this.state.showRep ? this.renderRep() : null }
+             {/* { this.state.showLog ? this.renderLog() : null } */}
+            {/* { this.state.showRep ? this.renderRep() : null  }  */}
 
           </form>
         </div>

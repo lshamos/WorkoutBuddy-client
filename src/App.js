@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import auth from './auth'
-
+import NumericInput from 'react-numeric-input'
 // import { Button } from 'react-bootstrap';
 
 import NavBar from './components/NavBar'
@@ -13,6 +13,7 @@ import LogOut from './components/LogOut'
 import CreateWorkout from './components/CreateWorkout'
 // import Log from './components/Log'
 import Profile from './components/Profile'
+import NewWorkoutSet from './components/NewWorkoutSet'
 
 class App extends Component {
 
@@ -41,22 +42,32 @@ state = {
             : null
           }
           <NavBar currentUser={this.state.currentUser} />
-          <Route exact path='/' component={Home} />
+          <Switch>
+            <Route exact path='/' component={Home} />
 
-          <Route path='/Profile' render={() => (
-            currentUser
-            ? <Profile />
-            : <Redirect to='/logIn' />
-          )} />
+            <Route path='/Profile' render={() => (
+              currentUser
+              ? <Profile />
+              : <Redirect to='/logIn' />
+            )} />
 
-          <Route path='/signup' component={SignUp} />
-          <Route path='/workouts/new' component={CreateWorkout} />
-          <Route path='/logIn' render={() => (
-            <LogIn onLogIn={this.setCurrentUser.bind(this)} />
-          )} />
-          <Route path='/logout' render={() => (
-            <LogOut onLogOut={this.logOut.bind(this)} />
-          )} />
+            <Route path='/signup' component={SignUp} />
+
+            <Route exact path='/workouts/new' component={CreateWorkout} />
+
+            <Route exact path='/workouts/:id' render={() => (
+              <h1>Viewing a workout</h1>
+            )} />
+            <Route path='/workouts/:id/sets/new' component={NewWorkoutSet} />
+
+
+            <Route path='/logIn' render={() => (
+              <LogIn onLogIn={this.setCurrentUser.bind(this)} />
+            )} />
+            <Route path='/logout' render={() => (
+              <LogOut onLogOut={this.logOut.bind(this)} />
+            )} />
+          </Switch>
         </div>
       </Router>
     );
