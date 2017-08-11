@@ -1,8 +1,8 @@
 # Workout Buddy
 
-### Workout Buddy is you go to weight room workout logger. Record your exercises, sets, number of reps and weight performed each and every time. 
+### Workout Buddy is you go to weight room workout logger. Record your exercises, sets, number of reps and weight performed each and every time.
 
-![Workout Buddy screenshot](src/images/Screen Shot 2017-08-10 at 7.22.09 PM.png)
+![Workout Buddy screenshot](images/WorkoutBuddyScreenShot.png)
 
 ### Workout Buddy was built with
 - React.js
