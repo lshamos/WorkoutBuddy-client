@@ -44,13 +44,12 @@ class LogIn extends React.Component {
         <Grid>
             <Row>
               <Col md={8} mdOffset={2}>
-          <h1>Log In</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <FormGroup>
             <input ref="email" type="text" placeholder="Email"/>
             <input ref="password" type="password" placeholder="Password"/>
-            </FormGroup>
             <button>Log In</button>
+            </FormGroup>
           </form>
         </Col>
       </Row>

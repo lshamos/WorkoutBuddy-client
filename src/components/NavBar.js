@@ -12,8 +12,8 @@ const NavBar = (props) => {
         </Navbar.Brand>
       </Navbar.Header>
         <Nav>
-        <LinkContainer to='/profile'><NavItem eventKey={3}>Profile </NavItem></LinkContainer>
-        <LinkContainer to='/workouts/new'><NavItem eventKey={4}>Workout Log </NavItem></LinkContainer>
+        <LinkContainer to='/profile'><NavItem eventKey={3}>Workout Log </NavItem></LinkContainer>
+        <LinkContainer to='/workouts/new'><NavItem eventKey={4}>New Workout </NavItem></LinkContainer>
         </Nav>
         <Nav pullRight>
         <LinkContainer to='/signup'><NavItem eventKey={2}>Sign Up</NavItem></LinkContainer>

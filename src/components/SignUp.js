@@ -37,8 +37,8 @@ class SignUp extends React.Component {
               <input ref="name" type="text" placeholder="Name"/>
               <input ref="email" type="text" placeholder="Email"/>
               <input ref="password" type="password" placeholder="Password"/>
+            <button>Create Account</button>
           </FormGroup>
-        <button>Create Account</button>
           </form>
         </Col>
       </Row>
