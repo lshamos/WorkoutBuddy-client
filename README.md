@@ -9,6 +9,7 @@
 - html, css, javascript
 - MongoDB
 - Bootstrap
+- Axios
 
 #### you can see produciton build housed on Heroku here -> <a href= "https://workoutbuddyapp.herokuapp.com/">Workout Buddy</a>
 
