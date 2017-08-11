@@ -27,9 +27,13 @@ class LogIn extends React.Component {
   render() {
     return (
       this.state.shouldRedirect
-      ? <Redirect to='/'/>
+      ? <Redirect to='/workouts/new'/>
       : (
         <div className="LogIn">
+          <div>
+            <h1>I'm your Workout Buddy!</h1>
+            <h2>Log in to start your workout!</h2>
+          </div>
           <h1>Log In</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input ref="email" type="text" placeholder="Email"/>

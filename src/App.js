@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import auth from './auth'
-import NumericInput from 'react-numeric-input'
 // import { Button } from 'react-bootstrap';
 
 import NavBar from './components/NavBar'
@@ -18,7 +17,7 @@ import NewWorkoutSet from './components/NewWorkoutSet'
 class App extends Component {
 
 state = {
-    currentUser: auth.getCurrentUser()
+    currentUser: auth.getCurrentUser(),
   }
 
   setCurrentUser() {
@@ -37,13 +36,10 @@ state = {
     return (
       <Router>
         <div className="App">
-          {currentUser
-            ? <p>Current User: {currentUser.name}</p>
-            : null
-          }
+
           <NavBar currentUser={this.state.currentUser} />
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={Profile} />
 
             <Route path='/Profile' render={() => (
               currentUser

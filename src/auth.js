@@ -5,6 +5,7 @@ class AuthClient {
   constructor() {
     this.request = axios.create({
       baseURL: 'https://workoutbuddyappserver.herokuapp.com/api',
+      // baseURL: 'https://localhost:3001/api',
       headers: {
         common: {
           token: this.getToken()
@@ -25,6 +26,10 @@ class AuthClient {
 
   editExercises(data) {
     return this.request({method: 'PATCH', url:'/exercises/'})
+  }
+
+  deleteExercise(id) {
+  return this.request({url:`/exercises/${id}`, method: 'DELETE'})
   }
 
   addSet(id, setInfo) {

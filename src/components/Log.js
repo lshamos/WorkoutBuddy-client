@@ -5,7 +5,7 @@ class Log extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      shouldredirect: false
+      shouldredirect: false 
     }
   }
   handleFormSubmit(evt) {

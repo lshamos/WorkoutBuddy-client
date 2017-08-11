@@ -3,6 +3,7 @@ import auth from '../auth'
 import {Redirect} from 'react-router-dom'
 import NumericInput from 'react-numeric-input'
 import Log from './Log'
+import { FormGroup, ControlLabel, Grid, Row, Col } from 'react-bootstrap'
 
 
 class CreateWorkout extends React.Component {
@@ -35,6 +36,9 @@ class CreateWorkout extends React.Component {
       ? <Redirect to={`/workouts/${this.state.newWorkoutId}/sets/new`}/>
       : (
         <div className="CreateWorkout">
+          <Grid>
+            <Row>
+              <Col md={6} mdOffset={3}>
           <h1>Select Exercise</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <select ref='name'>
@@ -72,6 +76,9 @@ class CreateWorkout extends React.Component {
             {/* { this.state.showRep ? this.renderRep() : null  }  */}
 
           </form>
+        </Col>
+      </Row>
+    </Grid>
         </div>
       ))
   }

@@ -11,12 +11,24 @@ const NavBar = (props) => {
           <NavLink exact to='/'>Workout Buddy</NavLink>
         </Navbar.Brand>
       </Navbar.Header>
-      <Nav>
-        <LinkContainer to='/login'><NavItem eventKey={1}>Log In</NavItem></LinkContainer>
-        <LinkContainer to='/signup'><NavItem eventKey={2}>Sign Up</NavItem></LinkContainer>
+        <Nav>
         <LinkContainer to='/profile'><NavItem eventKey={3}>Profile </NavItem></LinkContainer>
         <LinkContainer to='/workouts/new'><NavItem eventKey={4}>Workout Log </NavItem></LinkContainer>
-
+        </Nav>
+        <Nav pullRight>
+        <LinkContainer to='/signup'><NavItem eventKey={2}>Sign Up</NavItem></LinkContainer>
+        {
+          props.currentUser
+          ? <LinkContainer to='/logout'><NavItem eventKey={5}>Log Out</NavItem></LinkContainer>
+          : <LinkContainer to='/login'><NavItem eventKey={1}>Log In</NavItem></LinkContainer>
+        }
+        <LinkContainer to='/Profile'><NavItem eventKey={5}>
+          {
+            props.currentUser
+            ? <p>Current User: {props.currentUser.name}</p>
+            : null
+          }
+      </NavItem></LinkContainer>
       </Nav>
     </Navbar>
   )
