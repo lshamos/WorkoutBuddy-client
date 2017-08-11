@@ -41,6 +41,7 @@ class CreateWorkout extends React.Component {
               <Col md={6} mdOffset={3}>
           <h1>Select Exercise</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
+            <FormGroup>
             <select ref='name'>
               <option value='Deadlift'>Deadlift</option>
               <option value='Squat'>Barbell Squat</option>
@@ -71,10 +72,8 @@ class CreateWorkout extends React.Component {
               <option value='Dips'>Dips</option>
             </select>
             <button>Select</button>
-
-             {/* { this.state.showLog ? this.renderLog() : null } */}
-            {/* { this.state.showRep ? this.renderRep() : null  }  */}
-
+            </FormGroup>
+             
           </form>
         </Col>
       </Row>

@@ -1,6 +1,7 @@
 import React from 'react'
 import auth from '../auth'
 import { Redirect } from 'react-router-dom'
+import { FormGroup, ControlLabel, Grid, Row, Col } from 'react-bootstrap'
 
 class SignUp extends React.Component {
   state = {
@@ -27,13 +28,21 @@ class SignUp extends React.Component {
       ? <Redirect to='/login' />
       : (
         <div className="SignUp">
-          <h1>Create An Account</h1>
+          <Grid>
+            <Row>
+              <Col md={6} mdOffset={3}>
+                <h1>Create An Account</h1>
           <form onSubmit={this.handleFormSubmit.bind(this)}>
-            <input ref="name" type="text" placeholder="Name" />
-            <input ref="email" type="text" placeholder="Email" />
-            <input ref="password" type="password" placeholder="Password" />
-            <button>Create Account</button>
+          <FormGroup>
+              <input ref="name" type="text" placeholder="Name"/>
+              <input ref="email" type="text" placeholder="Email"/>
+              <input ref="password" type="password" placeholder="Password"/>
+          </FormGroup>
+        <button>Create Account</button>
           </form>
+        </Col>
+      </Row>
+    </Grid>
         </div>
       )
     )
