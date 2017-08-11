@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import auth from './auth'
-// import { Button } from 'react-bootstrap';
 
 import NavBar from './components/NavBar'
 import Home from './components/Home'
